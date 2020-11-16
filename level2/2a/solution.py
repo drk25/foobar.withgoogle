@@ -11,32 +11,24 @@ def generous_way(total_lambs):
         dbList.append(val)
         dbl_counter += 1
 
-    # print("dbl up ",dbList)
+    print("generous_way total_lambs ", total_lambs, dbList)
     return len(dbList)
 
 
 
-#fib seq
+# #fib seq
 def stingy_way(total_lambs):
-    fibList = [1,1]
-    fib_counter = 2
-    total = 2
-    while (total <= total_lambs):
-        if fib_counter > total_lambs:
-            break
-        val = fibList[total - 1] + fibList[total - 2]
-        testing = val + fib_counter
-        if testing > total_lambs:
-            break
-        fibList.append(val)
-        fib_counter = fib_counter + int(fibList[total])
-        if fib_counter > total_lambs:
-            break
-
-        total+=1
-
-    # print("fib seq ", fibList)
-    return len(fibList)
+    sequence = [1,1]
+    total = total_lambs
+    for i in range(1,total_lambs):
+        next_num = sequence[-1] + sequence[-2]
+        total -= next_num
+        if total > 0:
+            # print("total next_num ", total, next_num)
+            sequence.append(next_num)
+        else:
+            print("stingy_way total_lambs ", total_lambs, sequence )
+            return len(sequence)
   
 def comapare_result(sw, gw):
     return gw - sw
@@ -48,8 +40,10 @@ def solution(total_lambs):
     print("generous_way_result {} ".format(generous_way_result)) 
     print("stingy_way_result {} ".format(stingy_way_result_list)) 
     ans = comapare_result(generous_way_result,stingy_way_result_list) 
-    print("comapare_result ",ans) 
-    print("==================") 
+    print("comapare_result ",ans)
+    print("==================")
     return ans
+
+    
 solution(10)
 solution(143)
