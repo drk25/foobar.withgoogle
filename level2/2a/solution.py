@@ -18,6 +18,8 @@ def generous_way(total_lambs):
 
 # #fib seq
 def stingy_way(total_lambs):
+    if total_lambs <= 2:
+        return 1
     sequence = [1,1]
     total = total_lambs
     for i in range(1,total_lambs):
@@ -45,5 +47,5 @@ def solution(total_lambs):
     return ans
 
     
-solution(10)
+solution(2)
 solution(143)
